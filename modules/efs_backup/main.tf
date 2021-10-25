@@ -1,5 +1,5 @@
 module "label" {
-  source     = "../label-null"
+  source     = "github.com/odenigbojohnmary/terraform-labels-null.git?ref=master"
   enabled    = var.enabled
   namespace  = var.namespace
   name       = var.name
@@ -10,7 +10,7 @@ module "label" {
 }
 
 module "label_backup_role" {
-  source     = "./labels-null"
+  source     = "github.com/odenigbojohnmary/terraform-labels-null.git?ref=master"
   enabled    = var.enabled
   context    = module.label.context
   attributes = compact(concat(module.label.attributes, list("backup")))

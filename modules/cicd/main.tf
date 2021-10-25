@@ -5,7 +5,7 @@ data "aws_region" "default" {
 }
 
 module "label" {
-  source     = "./labels-null"
+  source     = "github.com/odenigbojohnmary/terraform-labels-null.git?ref=master"
   enabled    = var.enabled
   namespace  = var.namespace
   name       = var.name
