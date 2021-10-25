@@ -141,7 +141,7 @@ module "cicd" {
 
 # Label for EC2 slaves
 module "label_slaves" {
-  source     = "git@github.com:bantrain/terraform-module-null-label.git?ref=master"
+  source     = "../labels-null"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage
@@ -240,7 +240,7 @@ resource "aws_iam_role_policy_attachment" "slaves" {
 
 # Label for EC2 packer
 module "label_packer" {
-  source     = "git@github.com:bantrain/terraform-module-null-label.git?ref=master"
+  source     = "../labels-null"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage
