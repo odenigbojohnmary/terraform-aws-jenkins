@@ -5,7 +5,7 @@ data "aws_region" "default" {
 }
 
 module "label" {
-  source     = "../labels"
+  source     = "./labels"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage

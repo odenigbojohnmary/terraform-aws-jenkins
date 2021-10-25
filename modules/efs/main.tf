@@ -1,5 +1,5 @@
 module "label" {
-  source     = "../labels-null"
+  source     = "./labels-null"
   enabled    = var.enabled
   namespace  = var.namespace
   name       = var.name

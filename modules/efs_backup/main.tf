@@ -10,7 +10,7 @@ module "label" {
 }
 
 module "label_backup_role" {
-  source     = "../labels-null"
+  source     = "./labels-null"
   enabled    = var.enabled
   context    = module.label.context
   attributes = compact(concat(module.label.attributes, list("backup")))
