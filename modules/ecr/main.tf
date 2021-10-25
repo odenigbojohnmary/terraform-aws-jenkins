@@ -5,7 +5,7 @@ locals {
 }
 
 module "label" {
-  source     = "git@github.com:bantrain/terraform-module-null-label.git?ref=master"
+  source     = "../labels-null"
   enabled    = var.enabled
   namespace  = var.namespace
   stage      = var.stage

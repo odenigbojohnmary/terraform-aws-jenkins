@@ -5,7 +5,7 @@ data "aws_region" "default" {
 }
 
 module "label" {
-  source     = "git@github.com:bantrain/terraform-module-label.git?ref=master"
+  source     = "../labels"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage

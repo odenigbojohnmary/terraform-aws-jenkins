@@ -1,5 +1,5 @@
 module "label" {
-  source     = "git@github.com:bantrain/terraform-module-null-label.git?ref=master"
+  source     = "../labels-null"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage
