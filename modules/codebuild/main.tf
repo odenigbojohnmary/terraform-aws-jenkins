@@ -64,12 +64,7 @@ locals {
         location = var.enabled && var.cache_enabled ? join("", aws_s3_bucket.cache_bucket.*.bucket) : "none"
       }
     ]
-    "false" = [
-      {
-        type     = "S3"
-        location = var.enabled && var.cache_enabled ? join("", aws_s3_bucket.cache_bucket.*.bucket) : "none"
-      }
-    ]
+    "false" = []
   }
 
   # Final Map Selected from above
@@ -182,14 +177,20 @@ resource "aws_codebuild_project" "default" {
     type = var.artifact_type
   }
 
-  dynamic "cache" {
-    for_each = local.cache
-    content {
+  cache {
       location = lookup(cache.value, "location", null)
       modes    = lookup(cache.value, "modes", null)
       type     = lookup(cache.value, "type", null)
-    }
   }
+
+  # dynamic "cache" {
+  #   for_each = local.cache
+  #   content {
+  #     location = lookup(cache.value, "location", null)
+  #     modes    = lookup(cache.value, "modes", null)
+  #     type     = lookup(cache.value, "type", null)
+  #   }
+  # }
 
   environment {
     compute_type    = var.build_compute_type
