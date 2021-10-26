@@ -13,7 +13,7 @@ module "label_backup_role" {
   source     = "github.com/odenigbojohnmary/terraform-labels-null.git?ref=master"
   enabled    = var.enabled
   context    = module.label.context
-  attributes = compact(concat(module.label.attributes, list("backup")))
+  attributes = compact(concat(module.label.attributes, tolist(["backup"])))
 }
 
 resource "aws_backup_vault" "default" {
