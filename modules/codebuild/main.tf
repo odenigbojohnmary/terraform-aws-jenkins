@@ -178,7 +178,7 @@ resource "aws_codebuild_project" "default" {
   }
 
   cache {
-      location = lookup(cache.value, "location", null)
+      location = var.enabled && var.cache_enabled ? join("", aws_s3_bucket.cache_bucket.*.bucket) : "none"
       modes    = lookup(cache.value, "modes", null)
       type     = lookup(cache.value, "type", null)
   }
